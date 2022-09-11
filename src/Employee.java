@@ -5,12 +5,13 @@ public class Employee {
     private int departmentNumber;
     private int salary;
     private static int counter = 1;
-    private int id = counter;
+    private int id;
 
     public Employee(String fullName, int departmentNumber, int salary) {
         this.fullName = fullName;
         this.departmentNumber = departmentNumber;
         this.salary = salary;
+        this.id = counter++;
 
 
     }
@@ -32,7 +33,7 @@ public class Employee {
 
     public int getId() {
 
-        return this.id++;
+        return this.id;
     }
 
     public String toString() {
@@ -47,43 +48,6 @@ public class Employee {
     public void setSalary(int salary) {
 
         this.salary = salary;
-    }
-
-    private static void printFullName(String[] fullName) {
-
-        System.out.println(fullName);
-    }
-
-    private static int calculateSumSalary(int salary) {
-        int sum = 0;
-        for (int i = 0; i < 10; i++) {
-            sum += salary;
-            double averageCosts = 0;
-            averageCosts = sum / 10;
-        }
-        return sum;
-    }
-
-    private static void findEmployeeWithMinSalary() {
-        String[] Employee = new String[10];
-        int minCosts = 0;
-        for (int i = 1; i < Employee.length; i++) {
-            if ( Employee[i].length()< minCosts) ;
-            minCosts = Employee[i].length();
-            break;
-        }
-        System.out.println("Сотрудник с минимальной зарплатой - " + minCosts + "рублей");
-    }
-
-    private static void findEmployeeWithMaxSalary() {
-        String[] Employee = new String[10];
-        int maxCosts = -1;
-        for (int i = 0; i < Employee.length; i++) {
-            if (Employee[i].length() > maxCosts) ;
-            maxCosts = Employee[i].length();
-            break;
-        }
-        System.out.println("Сотрудник с максимальной зарплатой - " + maxCosts + "рублей");
     }
 }
 
