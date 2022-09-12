@@ -37,7 +37,7 @@ public class Employee {
     }
 
     public String toString() {
-        return id + ". " + this.fullName + ", Отдел №" + this.departmentNumber++ + ", Зарплата " + this.salary;
+        return this.id + ". " + this.fullName + ", Отдел №" + this.departmentNumber++ + ", Зарплата " + this.salary;
     }
 
     public void setDepartmentNumber(int departmentNumber) {
@@ -50,4 +50,3 @@ public class Employee {
         this.salary = salary;
     }
 }
-

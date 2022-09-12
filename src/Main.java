@@ -3,91 +3,88 @@ import org.w3c.dom.css.Counter;
 import java.util.Arrays;
 
 public class Main {
-    public static Employee employee = new Employee("Иванов Иван Иванович ", 1, 35_000);
-    public static String[] Employee = new String[10];
+    private static Employee[] employees = new Employee[10];
 
     public static void main(String[] args) {
-        int departmentNumber[] = new int[5];
-        for (int i = 1; i <= departmentNumber.length; i++) {
-            System.out.println(employee.getId() + "." + employee.getFullName() + ", " +
-                    i + ", " + employee.getSalary());
-            employee.setDepartmentNumber(5);
-            System.out.println("обратите внимание: перевод в отдел № " + employee.getDepartmentNumber());
-            employee.setSalary(45_000);
-            System.out.println("зарплата изменена: " + employee.getSalary());
+        Employee employees1 = new Employee("Фролова Мария Ивановна", 1, 25_000);
+        Employee employees2 = new Employee("Макеева Мария Ивановна", 1, 28_000);
+        Employee employees3 = new Employee("Макеев Фёдор Иванович", 2, 38_000);
+        Employee employees4 = new Employee("Сапожников Виталий Игнатович", 2, 39_000);
+        Employee employees5 = new Employee("Заречин Филипп Алексеевич", 3, 46_000);
+        Employee employees6 = new Employee("Сапожников Александр Васильевич", 3, 55_000);
+        Employee employees7 = new Employee("Суровцев Вадим Анатольевич", 4, 9_000);
+        Employee employees8 = new Employee("Рыбаков Владимир Владимирович", 4, 65_000);
+        Employee employees9 = new Employee("Закуткин Максим Игоревич", 5, 69_000);
+        Employee employees10 = new Employee("Афанасьев Леонид Владиславович", 5, 67_000);
+
+        employees[0] = employees1;
+        employees[1] = employees2;
+        employees[2] = employees3;
+        employees[3] = employees4;
+        employees[4] = employees5;
+        employees[5] = employees6;
+        employees[6] = employees7;
+        employees[7] = employees8;
+        employees[8] = employees9;
+        employees[9] = employees10;
+        printEmployees();
+        System.out.println("Сумма затрат на зарплаты сотрудникам составляет " + calculateSumSalary() + " рублей");
+        System.out.println("Средняя зарплата сотрудников: " + calculateAverageSalary() + " рублей");
+        findEmployeeWithMinSalary();
+        findEmployeeWithMaxSalary();
+        printListEmployees();
+    }
+
+    private static void printEmployees() {
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i]);
+        }
+    }
+
+    private static int calculateSumSalary() {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
+        }
+        return sum;
+    }
 
 
-            Employee[0] = ("Фролова Мария Ивановна, " + "номер отдела: 1, " + "зарплата: 25_000");
-            Employee[1] = ("Макеева Мария Ивановна, " + "номер отдела: 1, " + "зарплата: 28_000");
-            Employee[2] = ("Макеев Фёдор Иванович, " + "номер отдела: 2, " + "зарплата: 38_000");
-            Employee[3] = ("Сапожников Виталий Игнатович, " + "номер отдела: 2, " + "зарплата: 39_000");
-            Employee[4] = ("Заречин Филипп Алексеевич, " + "номер отдела: 3, " + "зарплата: 46_000");
-            Employee[5] = ("Сапожников Александр Васильевич, " + "номер отдела: 3, " + "зарплата: 55_000");
-            Employee[6] = ("Суровцев Вадим Анатольевич, " + "номер отдела: 4, " + "зарплата: 29_000");
-            Employee[7] = ("Рыбаков Владимир Владимирович, " + "номер отдела: 4, " + "зарплата: 65_000");
-            Employee[8] = ("Закуткин Максим Игоревич, " + "номер отдела: 5, " + "зарплата: 69_000");
-            Employee[9] = ("Афанасьев Леонид Владиславович, " + "номер отдела: 5, " + "зарплата: 67_000");
+    private static int calculateAverageSalary() {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
+            double averageCosts = 0.0;
+            averageCosts = sum / employees.length;
+        }
+        return sum / employees.length;
+    }
 
-            private static String printEmployees () {
-                for (i = 0; i < Employee.length; i++) {
-                    System.out.println(Employee[i]);
-                }
-            }
-            private static void calculateSumSalary () {
-                int sum = 0;
-                for (i = 0; i < Employee.length; i++) {
-                    sum += employee.getSalary();
-                    System.out.println("Сумма затрат на зарплаты сотрудникам составляет " + sum + " рублей");
-                }
-                private static int calculateAverageSalary () {
-                    double averageCosts = 0;
-                    averageCosts = sum / Employee.length;
-                    System.out.println("Средняя зарплата сотрудников: " + averageCosts);
-                }
-            }
-            private static void findEmployeeWithMinSalary () {
-                int minCosts = 0;
-                for (i = 1; i < Employee.length; i++) {
-                    if (employee.getSalary() < minCosts) {
-                        minCosts = employee.getSalary();
-                        break;
-                    }
-                    System.out.println("Сотрудник с минимальной зарплатой - " + minCosts + "рублей");
-                }
-            }
-            private static void findEmployeeWithMaxSalary () {
-                int maxCosts = -1;
-                for (i = 0; i < Employee.length; i++) {
-                    if (employee.getSalary() > maxCosts) {
-                        maxCosts = employee.getSalary();
-                        break;
-                    }
-                    System.out.println("Сотрудник с максимальной зарплатой - " + maxCosts + "рублей");
-                }
-                private static void printGetFullName () {
-                    for (int a = 0; a < Employee.length; a++) {
-                        System.out.println(employee.getFullName());
-                    }
-                }
+    private static void findEmployeeWithMinSalary() {
+        int minSalary = employees[0].getSalary();
+        for (int i = 1; i < employees.length; i++) {
+            if (employees[i].getSalary() < minSalary) {
+                minSalary = employees[i].getSalary();
+                System.out.println("Сотрудник с минимальной зарплатой - " + employees[i].getFullName() + " (" +
+                        minSalary + " рублей)");
             }
         }
     }
+
+    private static void findEmployeeWithMaxSalary() {
+        int maxSalary = employees[9].getSalary();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i].getSalary() > maxSalary) {
+                maxSalary = employees[i].getSalary();
+                System.out.println("Сотрудник с максимальной зарплатой - " + employees[i].getFullName() + " (" +
+                        maxSalary + " рублей)");
+            }
+        }
+    }
+
+    private static void printListEmployees() {
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].getFullName());
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
