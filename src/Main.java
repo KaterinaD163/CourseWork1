@@ -30,6 +30,7 @@ public class Main {
         printEmployees();
         System.out.println("Сумма затрат на зарплаты сотрудникам составляет " + calculateSumSalary() + " рублей");
         System.out.println("Средняя зарплата сотрудников: " + calculateAverageSalary() + " рублей");
+        calculateAverageSalary();
         findEmployeeWithMinSalary();
         findEmployeeWithMaxSalary();
         printListEmployees();
@@ -54,10 +55,11 @@ public class Main {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum += employees[i].getSalary();
-            double averageCosts = 0.0;
-            averageCosts = sum / employees.length;
+            float averageSalary = 0.0f;
+            averageSalary = sum /employees.length;
+
         }
-        return sum / employees.length;
+        return sum / employees.length ;
     }
 
     private static void findEmployeeWithMinSalary() {
@@ -65,8 +67,8 @@ public class Main {
         for (int i = 1; i < employees.length; i++) {
             if (employees[i].getSalary() < minSalary) {
                 minSalary = employees[i].getSalary();
-                System.out.println("Сотрудник с минимальной зарплатой - " + employees[i].getFullName() + " (" +
-                        minSalary + " рублей)");
+                System.out.println("Минимальная зарплата - " +
+                        minSalary + " рублей");
             }
         }
     }
@@ -76,8 +78,8 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalary() > maxSalary) {
                 maxSalary = employees[i].getSalary();
-                System.out.println("Сотрудник с максимальной зарплатой - " + employees[i].getFullName() + " (" +
-                        maxSalary + " рублей)");
+                System.out.println("Максимальная зарплата - " +
+                        maxSalary + " рублей");
             }
         }
     }
