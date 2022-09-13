@@ -50,16 +50,14 @@ public class Main {
         return sum;
     }
 
-
     private static int calculateAverageSalary() {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum += employees[i].getSalary();
-            float averageSalary = 0.0f;
-            averageSalary = sum /employees.length;
-
         }
-        return sum / employees.length ;
+        float averageSalary = 0.0f;
+        averageSalary = sum / employees.length;
+        return sum /employees.length ;
     }
 
     private static void findEmployeeWithMinSalary() {
